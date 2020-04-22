@@ -3,15 +3,11 @@
   "version": "1.0",
   "description": "Build an Extension!",
   "background": {
-    "scripts": [
-      "background.js"
-    ],
+    "scripts": ["background.js"],
     "persistent": false
   },
-  "permissions": [
-    "declarativeContent",
-    "storage"
-  ],
+  "options_page": "options.html",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {
