@@ -21,6 +21,13 @@ for (let label of labels) {
   }
 }
 
+var floatBoxIds = [
+  "merge_types_merge_commit",
+  "merge_types_squash",
+  "merge_types_rebase",
+  "merge_types_delete_branch"
+];
+
 for (let box of checkboxes) {
   // Hide the checkbox
   box.style.position = "absolute";
@@ -36,6 +43,13 @@ for (let box of checkboxes) {
   newNode.style.height = "20px";
   newNode.style.width = "20px";
   newNode.style.setProperty("margin", boxMargin);
+
+  // Some inputs on github have float: left defined by the class:
+  // .form-checkbox input[type=checkbox]
+  // We spare the faff and hack around it
+  if (floatBoxIds.includes(box.id)) {
+    newNode.style.float = "left";
+  }
 
   // Add to our array of new checkboxes
   nodeBoxes.push({ newNode, box });
