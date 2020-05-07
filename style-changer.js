@@ -49,7 +49,8 @@ for (let nodeBox of nodeBoxes) {
   let node = nodeBox.newNode;
   let box = nodeBox.box;
   node.onclick = function() {
-    box.checked = !box.checked;
+    box.click();
+
     node.src = getCheckboxImg(box.checked);
   };
 }
