@@ -6,6 +6,7 @@ let nodeBoxes = [];
 var checkedImgURL = chrome.extension.getURL("images/cherry-blossom-emoji.png");
 var uncheckedImgURL = chrome.extension.getURL("images/seed-emoji.png");
 
+// TODO: "Uncaught SyntaxError: Identifier 'labels' has already been declared"
 // Find all the labels with checkboxes and push those checkboxes to an array
 for (let label of labels) {
   const relatedElementId = label.htmlFor;
