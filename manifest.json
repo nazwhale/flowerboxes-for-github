@@ -1,6 +1,6 @@
 {
-  "name": "Flowerboxes for Github",
-  "version": "1.0",
+  "name": "Flowerboxes for GitHub",
+  "version": "1.0.2",
   "description": "Bloomin' checkboxes!",
   "background": {
     "scripts": ["background.js"],
@@ -20,7 +20,7 @@
     "16": "images/seed-emoji.png",
     "32": "images/seed-emoji.png",
     "48": "images/seed-emoji.png",
-    "128": "images/seed-emoji.png"
+    "128": "images/seed-emoji128.png"
   },
   "web_accessible_resources": [
     "images/seed-emoji.png",
