@@ -1,5 +1,5 @@
 {
-  "name": "GitHub Flowerboxes",
+  "name": "Flowerboxes for Github",
   "version": "1.0",
   "description": "Bloomin' checkboxes!",
   "background": {
@@ -14,7 +14,6 @@
   ],
   "permissions": ["activeTab", "declarativeContent", "storage"],
   "page_action": {
-    "default_popup": "popup.html",
     "default_icon": "images/seed-emoji.png"
   },
   "icons": {
