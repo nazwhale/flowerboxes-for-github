@@ -12,7 +12,7 @@
       "js": ["style-changer.js"]
     }
   ],
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": ["activeTab", "declarativeContent"],
   "page_action": {
     "default_icon": "images/seed-emoji.png"
   },
