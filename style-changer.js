@@ -1,12 +1,12 @@
 let labels = document.getElementsByTagName("label");
 
 let checkboxes = [];
-
 let nodeBoxes = [];
 
-var clickedImgURL = chrome.extension.getURL("images/cherry-blossom-emoji.png");
-var imgURL = chrome.extension.getURL("images/seed-emoji.png");
+var checkedImgURL = chrome.extension.getURL("images/cherry-blossom-emoji.png");
+var uncheckedImgURL = chrome.extension.getURL("images/seed-emoji.png");
 
+// Find all the labels with checkboxes and push those checkboxes to an array
 for (let label of labels) {
   const relatedElementId = label.htmlFor;
   if (relatedElementId === "") continue;
@@ -21,33 +21,38 @@ for (let label of labels) {
 }
 
 for (let box of checkboxes) {
-  // Hide the checkboxes
+  // Hide the checkbox
   box.style.position = "absolute";
   box.style.left = "-9999px";
 
+  // Grab the styling on the existing checkbox
   var compStyles = window.getComputedStyle(box);
   var boxMargin = compStyles.getPropertyValue("margin");
 
-
+  // Create new checkbox with styling
   var newNode = document.createElement("img");
-
-  newNode.src = imgURL;
+  newNode.src = getCheckboxImg(box.checked);
   newNode.style.height = "20px";
   newNode.style.width = "20px";
   newNode.style.setProperty("margin", boxMargin);
+
+  // Add to our array of new checkboxes
   nodeBoxes.push({ newNode, box });
 
+  // Add to the DOM after the existing box
   box.after(newNode);
 }
 
+// Setup onClick handlers for each box
 for (let nodeBox of nodeBoxes) {
   let node = nodeBox.newNode;
-  let box = nodeBox.box
-  node.onclick = function () {
-    box.checked = !box.checked
-    if (box.checked) node.src = clickedImgURL;
-    else node.src = imgURL;
+  let box = nodeBox.box;
+  node.onclick = function() {
+    box.checked = !box.checked;
+    node.src = getCheckboxImg(box.checked);
+  };
+}
 
-    console.log({ box })
-  }
+function getCheckboxImg(isChecked) {
+  return isChecked ? checkedImgURL : uncheckedImgURL;
 }
