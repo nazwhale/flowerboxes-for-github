@@ -4,7 +4,7 @@
   "description": "Bloomin' checkboxes!",
   "background": {
     "scripts": ["background.js"],
-    "persistent": false
+    "persistent": true
   },
   "content_scripts": [
     {
@@ -12,7 +12,7 @@
       "js": ["style-changer.js"]
     }
   ],
-  "permissions": ["activeTab", "declarativeContent"],
+  "permissions": ["activeTab", "declarativeContent", "tabs"],
   "page_action": {
     "default_icon": "images/seed-emoji.png"
   },
